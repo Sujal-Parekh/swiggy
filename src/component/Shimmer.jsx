@@ -37,7 +37,7 @@ export default Shimmer
 export function Menushimmer(){
     return (
         <>
-      <div className='w-[60%] mx-auto  '>
+      <div className='w-[60%] md:w-[60%] mx-auto  '>
       <div className='w-full h-3 bg-slate-200   '>  </div>
 
          <div className='    grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2  '>

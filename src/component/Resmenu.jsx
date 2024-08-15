@@ -85,7 +85,7 @@ function Resmenu() {
                                         <img className='w-5  ' src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_40,h_40/${resinfo?.feeDetails?.icon}`} alt="" />
                                         {/* <span>{resinfo?.expectationNotifiers[0]?.enrichedText} </span> */}
                                         {/* <span>{console.log(resinfo?.expectationNotifiers?.[0]?.enrichedText.split("<b>"))}</span> */}
-
+   
                                         <span className='text-sm ml-4 text-slate-600 '>{resinfo?.expectationNotifiers?.[0]?.enrichedText.replace(/<[^>]*>/g, "")}</span>
                                     </div>
                                 </div>

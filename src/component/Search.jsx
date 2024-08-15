@@ -21,8 +21,7 @@ function Search() {
 
 
   const filterbtn = [
-    "Restaurants",
-    "dishes"
+    "Restaurants","dishes"
   ]
 
 
@@ -130,17 +129,19 @@ function Search() {
              </div>
              <br/>
              {
-              similarresdishes.map((data,i)=> <Sdishes key={i} data={{...data.card, restaurant:selecteddishes.card.card.restaurant}}/> )
+              similarresdishes.map((data,i)=> 
+              <Sdishes key={i} data={{...data.card, restaurant:selecteddishes.card.card.restaurant}}/> 
+            )
              }
              </> 
              :
               filbtn === "dishes" ?
                 (dishes.map((data,i) => <Sdishes key={i} data={data.card.card } />))
-                : (restaurantdata.map((data) => 
+                : (restaurantdata.map((data,i) => 
                data?.card?.card?.info?.promoted?
-               <Promotedtres data={data}/>
+               <Promotedtres key={i} data={data}/>
                :
-               <Srestuarant data={data} />
+               <Srestuarant key={i} data={data} />
               ))
             }
           </div>}
