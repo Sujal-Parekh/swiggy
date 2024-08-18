@@ -63,9 +63,10 @@ function Head() {
     async function searchresultfun(val) {
         if (val == "") return
         //  console.log(val)
-        const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`));
-        const result = await response.json();
-        const res = JSON.parse(result.contents);
+        // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`));
+        const response =await fetch(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`)
+        const res = await response.json();
+        // const res = JSON.parse(result.contents);
         setSearchresult(res.data)
         // console.log(res.data );
     }
@@ -73,9 +74,10 @@ function Head() {
     async function fetchlatandLang(id) {
         if (id == "") return
         handlevisible()
-        const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`));
-        const result = await response.json();
-        const res = JSON.parse(result.contents);
+        // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`));
+       const response =await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`)
+        const res = await response.json();
+        // const res = JSON.parse(result.contents);
         // setCordi({
         //     lat: res.data[0].geometry.location.lat,
         //     lng: res.data[0].geometry.location.lng
