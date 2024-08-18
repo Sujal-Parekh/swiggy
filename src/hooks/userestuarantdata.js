@@ -11,11 +11,11 @@ function userestuarantdata() {
     const { lat, lng } = useSelector((state) => state.coordinates);
   
     async function fetchData() {
-      const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
-      // const data = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`));
-      const swiggyData = await data.json();
+      // const data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
+      const data = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`));
+      const result = await data.json();
       // console.log(swiggyData)
-      // const swiggyData = JSON.parse(result.contents); 
+      const swiggyData = JSON.parse(result.contents); 
       setToprestitle(swiggyData?.data?.cards[1]?.card?.card?.header?.title)
       setFooddeltitle(swiggyData?.data?.cards[2]?.card?.card?.title)
       setData(swiggyData.data)
