@@ -1,16 +1,9 @@
 {
-    "routes": [
-      {
-        "src": "/[^.]+",
-        "dest": "/",
-        "status": 200
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/cors/:path*",
-        "destination": "https://www.swiggy.com/:path*"
-      }
+    "routes":[
+        {
+            "src":"/[^.]+",
+            "dest":"/",
+            "status":200
+        }
     ]
-  }
-  
+}
