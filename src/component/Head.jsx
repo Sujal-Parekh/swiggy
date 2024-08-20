@@ -64,7 +64,7 @@ function Head() {
         if (val == "") return
         //  console.log(val)
         // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`));
-        const response =await fetch(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`)
+        const response =await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/misc/place-autocomplete?input=${val}`)
         const res = await response.json();
         // const res = JSON.parse(result.contents);
         setSearchresult(res.data)
@@ -75,7 +75,7 @@ function Head() {
         if (id == "") return
         handlevisible()
         // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`));
-       const response =await fetch(`https://www.swiggy.com/dapi/misc/address-recommend?place_id=${id}`)
+       const response =await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/misc/address-recommend?place_id=${id}`)
         const res = await response.json();
         // const res = JSON.parse(result.contents);
         // setCordi({

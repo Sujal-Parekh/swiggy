@@ -43,7 +43,7 @@ function Search() {
   }
 
   async function fetchdishes() {
-    let data = await fetch(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=undefined&submitAction=ENTER&queryUniqueId=be5d58e5-adda-49b6-0b8b-95bf796c1c05`)
+    let data = await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=undefined&submitAction=ENTER&queryUniqueId=be5d58e5-adda-49b6-0b8b-95bf796c1c05`)
     let res = await data.json()
     setDishes((res?.data?.cards[1]?.groupedCard?.cardGroupMap?.DISH?.cards).filter(data => data?.card?.card?.info))
 
@@ -56,11 +56,11 @@ function Search() {
     let pathname=`/city/${city}/${reslocation}`
    let encodedpath=encodeURIComponent(pathname)
   //  console.log(encodedpath)
-  const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`));
-  const result = await response.json();
-  const res = JSON.parse(result.contents);
-    // let data = await fetch(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`)
-    // let res = await data.json()
+  // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`));
+  // const result = await response.json();
+  // const res = JSON.parse(result.contents);
+    let data = await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`)
+    let res = await data.json()
     // console.log(res)
     setSelecteddishes(res?.data?.cards[1])
     setSimilarresdishes(res?.data?.cards[2]?.card?.card?.cards)
@@ -69,7 +69,7 @@ function Search() {
   }
 
   async function fetchrestaurant() {
-    let data = await fetch(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=undefined&submitAction=ENTER&queryUniqueId=be5d58e5-adda-49b6-0b8b-95bf796c1c05&selectedPLTab=RESTAURANT`)
+    let data = await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=undefined&submitAction=ENTER&queryUniqueId=be5d58e5-adda-49b6-0b8b-95bf796c1c05&selectedPLTab=RESTAURANT`)
     let res = await data.json()
     // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=undefined&submitAction=ENTER&queryUniqueId=be5d58e5-adda-49b6-0b8b-95bf796c1c05&selectedPLTab=RESTAURANT`));
     // const result = await response.json();
