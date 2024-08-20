@@ -57,7 +57,6 @@ function Search() {
    let encodedpath=encodeURIComponent(pathname)
   //  console.log(encodedpath)
   const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`));
-  // const response =await fetch(`https://www.swiggy.com/dapi/misc/place-autocomplete?input=${val}`)
   const result = await response.json();
   const res = JSON.parse(result.contents);
     // let data = await fetch(`https://www.swiggy.com/dapi/restaurants/search/v3?lat=${lat}&lng=${lng}&str=${searchquery}&trackingId=null&submitAction=ENTER&selectedPLTab=dish-add&restaurantMenuUrl=${encodedpath}-rest${resid}%3Fquery%3D${searchquery}&restaurantIdOfAddedItem=${resid}&itemAdded=${itemid}`)

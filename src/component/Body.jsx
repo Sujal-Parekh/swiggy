@@ -18,11 +18,13 @@ function Body() {
     const { lat, lng } = useSelector((state) => state.coordinates);
   
     async function fetchData() {
-      // const datwait fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
-      const data = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`));
-      const result  = await data.json();
+      const data = await fetch(`https://onlinedeliveryapp.vercel.app/cors/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`);
+
+      // const data = await fetch(`https://cors-by-codethread-for-swiggy.vercel.app/cors/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`)
+      // const data = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`));
+      const swiggyData = await data.json();
       // console.log(swiggyData)
-      const swiggyData = JSON.parse(result.contents); 
+      // const swiggyData = JSON.parse(result.contents); 
       setToprestitle(swiggyData?.data?.cards[1]?.card?.card?.header?.title)
       setFooddeltitle(swiggyData?.data?.cards[2]?.card?.card?.title)
       setData(swiggyData.data)
@@ -41,6 +43,7 @@ function Body() {
     useEffect(() => {
       fetchData();
     }, [lat, lng]);
+    
   const filterval = useSelector((state) => state.filterslice.filterval)
   // console.log("this is toprestaurantdata", toprestuarantdata);
 
