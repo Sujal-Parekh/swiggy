@@ -27,7 +27,9 @@ function Resmenu() {
 
     async function fetchmenu() {
      // const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${mainid}&catalog_qa=undefined&submitAction=ENTER`));
-        const response = await fetch(`https://onlinedeliveryapp.vercel.app/cors/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${mainid}&catalog_qa=undefined&submitAction=ENTER`)
+        // const response = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${mainid}&catalog_qa=undefined&submitAction=ENTER`)
+        const response = await fetch(`https://onlinedeliveryapp.vercel.app/cors/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${lng}&restaurantId=${mainid}&catalog_qa=undefined&submitAction=ENTER`);
+
         const res = await response.json();
         // const res = JSON.parse(result.contents);
         setResinfo(res?.data?.cards[2]?.card?.card?.info)
